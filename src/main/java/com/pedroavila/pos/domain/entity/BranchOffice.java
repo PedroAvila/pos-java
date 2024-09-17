@@ -35,8 +35,7 @@ public class BranchOffice {
     private Date creationDate;
 
 
-    public BranchOffice() {
-    }
+    public BranchOffice() { }
 
     /*public BranchOffice(int companyId, int code, String name, String address, String phone, int status, Date creationDate) {
         this.companyId = companyId;

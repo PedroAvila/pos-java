@@ -4,6 +4,7 @@ import com.pedroavila.pos.domain.service.BranchOfficeService;
 import com.pedroavila.pos.domain.service.dto.BranchOfficeDTO;
 import com.pedroavila.pos.operations.common.CustomException;
 import com.pedroavila.pos.operations.mapper.BranchOfficeMapper;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,11 +25,11 @@ public class BranchOfficeController {
     }
 
     @PostMapping("/branchoffices")
-    public ResponseEntity<?> createBranchOffice(@RequestBody BranchOfficeDTO branchOfficeDTO){
+    public ResponseEntity<?> createBranchOffice(@Valid @RequestBody BranchOfficeDTO branchOfficeDTO){
         try {
             var branchOffice = BranchOfficeMapper.mapper.dtoToEntity(branchOfficeDTO);
             var entity = branchOfficeService.save(branchOffice);
-            var response = new CustomResponse<BranchOfficeDTO>(HttpStatus.OK.value(), BranchOfficeMapper.mapper.entityToDto(entity));
+            var response = new CustomResponse<BranchOfficeDTO>(HttpStatus.CREATED.value(), BranchOfficeMapper.mapper.entityToDto(entity));
             return ResponseEntity.ok(response);
         }catch(CustomException e){
             var errorResponse = new CustomResponse<Object>(e.getStatus(), e.getMessage());

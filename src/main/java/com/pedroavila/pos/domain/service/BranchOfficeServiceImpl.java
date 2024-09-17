@@ -24,7 +24,7 @@ public class BranchOfficeServiceImpl implements BranchOfficeService {
     @Transactional
     public BranchOffice save(BranchOffice entity) {
 
-        boolean existName = branchOfficeRepository.existeNombre(entity.getCompanyId(), entity.getName());
+        boolean existName = branchOfficeRepository.existsByCompanyIdAndName(entity.getCompanyId(), entity.getName());
         if (existName)
             throw new CustomException("El nombre de la sucursal ya existe", HttpStatus.BAD_REQUEST.value());
 

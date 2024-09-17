@@ -5,6 +5,8 @@ import com.pedroavila.pos.domain.service.dto.BranchOfficeDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface BranchOfficeMapper {
 
@@ -13,4 +15,6 @@ public interface BranchOfficeMapper {
     BranchOfficeDTO entityToDto(BranchOffice entity);
 
     BranchOffice dtoToEntity(BranchOfficeDTO dto);
+
+    List<BranchOfficeDTO> entityToDtos(List<BranchOffice> entity);
 }

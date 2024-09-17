@@ -14,7 +14,7 @@
 	<name>pos</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -72,8 +72,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<source>21</source> <!-- Dependiendo de tu proyecto -->
-					<target>21</target> <!-- Dependiendo de tu proyecto -->
+					<source>17</source> <!-- Dependiendo de tu proyecto -->
+					<target>17</target> <!-- Dependiendo de tu proyecto -->
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.mapstruct</groupId>
