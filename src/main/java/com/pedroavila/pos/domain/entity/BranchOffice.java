@@ -1,5 +1,6 @@
 package com.pedroavila.pos.domain.entity;
 
+import com.pedroavila.pos.domain.entity.enums.StatusBranchOffice;
 import jakarta.persistence.*;
 
 import java.util.Date;

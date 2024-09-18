@@ -1,8 +1,8 @@
 package com.pedroavila.pos.domain.service;
 
 import com.pedroavila.pos.domain.entity.BranchOffice;
-import com.pedroavila.pos.domain.repositorycontrac.BranchOfficeRepository;
-import com.pedroavila.pos.operations.common.CustomException;
+import com.pedroavila.pos.domain.repositoryContrac.BranchOfficeRepository;
+import com.pedroavila.pos.operations.common.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class BranchOfficeServiceImpl implements BranchOfficeService {
 
         boolean existName = branchOfficeRepository.existsByCompanyIdAndName(entity.getCompanyId(), entity.getName());
         if (existName)
-            throw new CustomException("El nombre de la sucursal ya existe", HttpStatus.BAD_REQUEST.value());
+            throw new BusinessException("El nombre de la sucursal ya existe", HttpStatus.BAD_REQUEST.value());
 
         entity.setCode(branchOfficeRepository.generarCodigo(entity.getCompanyId()));
         entity.setCreationDate(new Date());

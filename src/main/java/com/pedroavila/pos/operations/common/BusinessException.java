@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import java.util.Arrays;
 
 @ControllerAdvice
-public class CustomException extends RuntimeException {
+public class BusinessException extends RuntimeException {
 
     private int status;
     private String message;
@@ -27,16 +27,16 @@ public class CustomException extends RuntimeException {
         this.message = message;
     }
 
-    public CustomException() {
+    public BusinessException() {
         super();
     }
 
-    public CustomException(String message) {
+    public BusinessException(String message) {
         super(message);
         this.message = message;
     }
 
-    public CustomException(String format, Object... args) {
+    public BusinessException(String format, Object... args) {
         super(String.format(format, args));
         this.message = String.format(format, args);
         Object dato = Arrays.stream(args).findFirst().orElse(null);

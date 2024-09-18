@@ -2,7 +2,7 @@ package com.pedroavila.pos.rest;
 
 import com.pedroavila.pos.domain.service.BranchOfficeService;
 import com.pedroavila.pos.domain.service.dto.BranchOfficeDTO;
-import com.pedroavila.pos.operations.common.CustomException;
+import com.pedroavila.pos.operations.common.BusinessException;
 import com.pedroavila.pos.operations.mapper.BranchOfficeMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +30,8 @@ public class BranchOfficeController {
             var branchOffice = BranchOfficeMapper.mapper.dtoToEntity(branchOfficeDTO);
             var entity = branchOfficeService.save(branchOffice);
             var response = new CustomResponse<BranchOfficeDTO>(HttpStatus.CREATED.value(), BranchOfficeMapper.mapper.entityToDto(entity));
-            return ResponseEntity.ok(response);
-        }catch(CustomException e){
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        }catch(BusinessException e){
             var errorResponse = new CustomResponse<Object>(e.getStatus(), e.getMessage());
             return ResponseEntity.status(e.getStatus()).body(errorResponse);
         }

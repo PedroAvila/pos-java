@@ -1,4 +1,4 @@
-package com.pedroavila.pos.domain.repositorycontrac;
+package com.pedroavila.pos.domain.repositoryContrac;
 
 import com.pedroavila.pos.domain.entity.BranchOffice;
 import org.springframework.data.jpa.repository.JpaRepository;
