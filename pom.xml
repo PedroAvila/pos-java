@@ -77,8 +77,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<source>17</source>
-					<target>17</target>
+					<source>17</source> <!-- Dependiendo de tu proyecto -->
+					<target>17</target> <!-- Dependiendo de tu proyecto -->
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.mapstruct</groupId>
@@ -86,14 +86,6 @@
 							<version>1.5.3.Final</version>
 						</path>
 					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.3.1</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
