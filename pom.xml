@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pedroavila</groupId>
-	<artifactId>pos</artifactId>
+	<artifactId>ms-pos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pos</name>
 	<description>Demo project for Spring Boot</description>
