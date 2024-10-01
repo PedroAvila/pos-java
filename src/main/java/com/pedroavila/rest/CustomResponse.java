@@ -1,4 +1,4 @@
-package com.pedroavila.pos.rest;
+package com.pedroavila.rest;
 
 import java.util.Arrays;
 import java.util.List;

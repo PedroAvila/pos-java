@@ -1,7 +1,6 @@
-package com.pedroavila.pos.operations.common;
+package com.pedroavila.operations.common;
 
-import com.pedroavila.pos.rest.CustomResponse;
-import jakarta.validation.ConstraintViolationException;
+import com.pedroavila.rest.CustomResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

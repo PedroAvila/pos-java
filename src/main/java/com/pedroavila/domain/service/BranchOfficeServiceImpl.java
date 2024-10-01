@@ -1,8 +1,8 @@
-package com.pedroavila.pos.domain.service;
+package com.pedroavila.domain.service;
 
-import com.pedroavila.pos.domain.entity.BranchOffice;
-import com.pedroavila.pos.domain.repositoryContrac.BranchOfficeRepository;
-import com.pedroavila.pos.operations.common.BusinessException;
+import com.pedroavila.domain.entity.BranchOffice;
+import com.pedroavila.domain.repositoryContrac.BranchOfficeRepository;
+import com.pedroavila.operations.common.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

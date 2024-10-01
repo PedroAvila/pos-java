@@ -1,7 +1,7 @@
-package com.pedroavila.pos.operations.mapper;
+package com.pedroavila.operations.mapper;
 
-import com.pedroavila.pos.domain.entity.BranchOffice;
-import com.pedroavila.pos.domain.service.dto.BranchOfficeDTO;
+import com.pedroavila.domain.entity.BranchOffice;
+import com.pedroavila.domain.service.dto.BranchOfficeDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

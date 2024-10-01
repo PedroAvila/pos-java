@@ -1,9 +1,9 @@
-package com.pedroavila.pos.rest;
+package com.pedroavila.rest;
 
-import com.pedroavila.pos.domain.service.BranchOfficeService;
-import com.pedroavila.pos.domain.service.dto.BranchOfficeDTO;
-import com.pedroavila.pos.operations.common.BusinessException;
-import com.pedroavila.pos.operations.mapper.BranchOfficeMapper;
+import com.pedroavila.domain.service.BranchOfficeService;
+import com.pedroavila.domain.service.dto.BranchOfficeDTO;
+import com.pedroavila.operations.common.BusinessException;
+import com.pedroavila.operations.mapper.BranchOfficeMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

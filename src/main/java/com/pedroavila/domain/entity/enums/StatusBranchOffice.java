@@ -1,4 +1,4 @@
-package com.pedroavila.pos.domain.entity.enums;
+package com.pedroavila.domain.entity.enums;
 
 public enum StatusBranchOffice {
     ENABLED(1),

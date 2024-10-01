@@ -1,8 +1,6 @@
-package com.pedroavila.pos.domain.service.dto;
+package com.pedroavila.domain.service.dto;
 
-import com.pedroavila.pos.domain.entity.enums.StatusBranchOffice;
-import jakarta.persistence.Convert;
-import jakarta.validation.constraints.Max;
+import com.pedroavila.domain.entity.enums.StatusBranchOffice;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

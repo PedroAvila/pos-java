@@ -1,4 +1,4 @@
-package com.pedroavila.pos.operations.common;
+package com.pedroavila.operations.common;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
