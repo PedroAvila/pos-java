@@ -5,8 +5,10 @@ import com.pedroavila.domain.service.dto.CreateBranchOfficeResult;
 import com.pedroavila.domain.service.dto.GetBranchOfficeQuery;
 import com.pedroavila.domain.service.dto.GetBranchOfficeResult;
 
+import java.util.concurrent.CompletableFuture;
+
 public interface BranchOfficeService {
 
-    GetBranchOfficeResult getAll(GetBranchOfficeQuery query);
-    CreateBranchOfficeResult save(CreateBranchOfficeCommad command);
+    CompletableFuture<GetBranchOfficeResult> getAllAsync(GetBranchOfficeQuery query);
+    CompletableFuture<CreateBranchOfficeResult> saveAsync(CreateBranchOfficeCommad command);
 }

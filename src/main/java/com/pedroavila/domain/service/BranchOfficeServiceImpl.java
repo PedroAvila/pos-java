@@ -10,10 +10,12 @@ import com.pedroavila.domain.service.dto.GetBranchOfficeResult;
 import com.pedroavila.operations.common.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class BranchOfficeServiceImpl implements BranchOfficeService {
@@ -25,15 +27,17 @@ public class BranchOfficeServiceImpl implements BranchOfficeService {
         this.branchOfficeRepository = branchOfficeRepository;
     }
 
+    @Async("asyncExecutor")
     @Override
-    public GetBranchOfficeResult getAll(GetBranchOfficeQuery query) {
+    public CompletableFuture<GetBranchOfficeResult> getAllAsync(GetBranchOfficeQuery query) {
         var result = branchOfficeRepository.findByCompanyId(query.id());
-        return new GetBranchOfficeResult(result);
+        return CompletableFuture.completedFuture(new GetBranchOfficeResult(result));
     }
 
+    @Async("asyncExecutor")
     @Override
     @Transactional
-    public CreateBranchOfficeResult save(CreateBranchOfficeCommad command) {
+    public CompletableFuture<CreateBranchOfficeResult> saveAsync(CreateBranchOfficeCommad command) {
 
         var branch = new BranchOffice();
         branch.setCompanyId(command.companyId());
@@ -49,7 +53,7 @@ public class BranchOfficeServiceImpl implements BranchOfficeService {
             throw new BusinessException("El nombre de la sucursal ya existe", HttpStatus.BAD_REQUEST.value());
 
         branchOfficeRepository.save(branch);
-        return new CreateBranchOfficeResult(branch.getId(), branch.getCompanyId(), branch.getCode(),
-                branch.getName(), branch.getAddress(), branch.getPhone(), branch.getStatus(), branch.getCreationDate());
+        return CompletableFuture.completedFuture(new CreateBranchOfficeResult(branch.getId(), branch.getCompanyId(), branch.getCode(),
+                branch.getName(), branch.getAddress(), branch.getPhone(), branch.getStatus(), branch.getCreationDate()));
     }
 }

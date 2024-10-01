@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.CompletableFuture;
+
 @RestController
 @RequestMapping("/api/branchoffices")
 public class BranchOfficeController {
@@ -25,12 +27,12 @@ public class BranchOfficeController {
     @GetMapping("{id}")
     public ResponseEntity<?> getAllById(@PathVariable int id){
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new CustomResponse<GetBranchOfficeResult>(HttpStatus.OK.value(), service.getAll(new GetBranchOfficeQuery(id))));
+                .body(new CustomResponse<GetBranchOfficeResult>(HttpStatus.OK.value(), service.getAllAsync(new GetBranchOfficeQuery(id)).join()));
     }
 
     @PostMapping
-    public ResponseEntity<?> createBranchOffice(@Valid @RequestBody CreateBranchOfficeCommad branchOfficeDTO){
+    public ResponseEntity<?> createBranchOffice(@Valid @RequestBody CreateBranchOfficeCommad dto){
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(new CustomResponse<CreateBranchOfficeResult>(HttpStatus.CREATED.value(), service.save(branchOfficeDTO)));
+                .body(new CustomResponse<CreateBranchOfficeResult>(HttpStatus.CREATED.value(), service.saveAsync(dto).join()));
     }
 }
