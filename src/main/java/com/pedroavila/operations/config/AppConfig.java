@@ -1,4 +1,4 @@
-package com.pedroavila.config;
+package com.pedroavila.operations.config;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;

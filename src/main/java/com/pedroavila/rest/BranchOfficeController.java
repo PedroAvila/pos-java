@@ -1,39 +1,36 @@
 package com.pedroavila.rest;
 
 import com.pedroavila.domain.service.BranchOfficeService;
-import com.pedroavila.domain.service.dto.BranchOfficeDTO;
-import com.pedroavila.operations.common.BusinessException;
-import com.pedroavila.operations.mapper.BranchOfficeMapper;
+import com.pedroavila.domain.service.dto.CreateBranchOfficeCommad;
+import com.pedroavila.domain.service.dto.CreateBranchOfficeResult;
+import com.pedroavila.domain.service.dto.GetBranchOfficeQuery;
+import com.pedroavila.domain.service.dto.GetBranchOfficeResult;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/branchoffices")
 public class BranchOfficeController {
 
-    private final BranchOfficeService branchOfficeService;
+    private final BranchOfficeService service;
 
     @Autowired
-    public BranchOfficeController(BranchOfficeService branchOfficeService) {
-        this.branchOfficeService = branchOfficeService;
+    public BranchOfficeController(BranchOfficeService service) {
+        this.service = service;
     }
 
-    @PostMapping("/branchoffices")
-    public ResponseEntity<?> createBranchOffice(@Valid @RequestBody BranchOfficeDTO branchOfficeDTO){
-        try {
-            var branchOffice = BranchOfficeMapper.mapper.dtoToEntity(branchOfficeDTO);
-            var entity = branchOfficeService.save(branchOffice);
-            var response = new CustomResponse<BranchOfficeDTO>(HttpStatus.CREATED.value(), BranchOfficeMapper.mapper.entityToDto(entity));
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        }catch(BusinessException e){
-            var errorResponse = new CustomResponse<Object>(e.getStatus(), e.getMessage());
-            return ResponseEntity.status(e.getStatus()).body(errorResponse);
-        }
+    @GetMapping("{id}")
+    public ResponseEntity<?> getAllById(@PathVariable int id){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new CustomResponse<GetBranchOfficeResult>(HttpStatus.OK.value(), service.getAll(new GetBranchOfficeQuery(id))));
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createBranchOffice(@Valid @RequestBody CreateBranchOfficeCommad branchOfficeDTO){
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new CustomResponse<CreateBranchOfficeResult>(HttpStatus.CREATED.value(), service.save(branchOfficeDTO)));
     }
 }

@@ -1,9 +1,11 @@
-package com.pedroavila.domain.repositoryContrac;
+package com.pedroavila.domain.repositoryContract;
 
 import com.pedroavila.domain.entity.BranchOffice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 public interface BranchOfficeRepository extends JpaRepository<BranchOffice, Integer> {
 
@@ -14,4 +16,5 @@ public interface BranchOfficeRepository extends JpaRepository<BranchOffice, Inte
     Boolean existsNombreByCompany(@Param("companyId") Integer companyId, @Param("name") String name);*/
 
     Boolean existsByCompanyIdAndName(Integer companyId, String name);
+    List<BranchOffice> findByCompanyId(Integer companyId);
 }
