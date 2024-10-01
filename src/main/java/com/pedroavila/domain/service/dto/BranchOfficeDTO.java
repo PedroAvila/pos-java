@@ -20,8 +20,8 @@ public record BranchOfficeDTO(
 
         @Size(max = 10, message = "El número de teléfono no puede tener más de 10 caracteres")
         String phone
-        //int status
-){} /*{
+
+){}/* {
     public BranchOfficeDTO {
         if (status == 0) {
             status = StatusBranchOffice.ENABLED.getValue();
