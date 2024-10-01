@@ -8,11 +8,7 @@ import jakarta.validation.constraints.Size;
 import java.util.Date;
 
 public record BranchOfficeDTO(
-        int id,
-
         int companyId,
-
-        int code,
 
         @NotNull
         @NotEmpty
@@ -23,16 +19,13 @@ public record BranchOfficeDTO(
         String address,
 
         @Size(max = 10, message = "El número de teléfono no puede tener más de 10 caracteres")
-        String phone,
-
-        int status,
-
-        Date creationDate
-) {
+        String phone
+        //int status
+){} /*{
     public BranchOfficeDTO {
         if (status == 0) {
             status = StatusBranchOffice.ENABLED.getValue();
         }
     }
-}
+}*/
 
