@@ -1,4 +1,4 @@
-# BranchOffice API - Java 17 & Spring Boot (Async Methods)
+mpresa# BranchOffice API - Java 17 & Spring Boot (Async Methods)
 
 Esta API está implementada en **Java 17** y **Spring Boot**, utilizando métodos asíncronos con `@Async`. Proporciona funcionalidades CRUD para la entidad **BranchOffice** (sucursal), permitiendo la gestión asíncrona de operaciones como creación, actualización y consulta.
 
@@ -56,7 +56,7 @@ public CompletableFuture<CreateBranchOfficeResult> saveAsync(CreateBranchOfficeC
 
 ## Endpoints
 
-- `GET /api/branchoffices/{id}`: Obtiene todas las sucursales por ID.
+- `GET /api/branchoffices/{id}`: Obtiene todas las sucursales por IdEmpresa.
 - `POST /api/branchoffices`: Crea una nueva sucursal.
 - `PUT /api/branchoffices/{id}`: Actualiza una sucursal existente.
 
