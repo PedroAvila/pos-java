@@ -72,8 +72,7 @@ public CompletableFuture<CreateBranchOfficeResult> saveAsync(CreateBranchOfficeC
 ## Despliegue en Azure
 
 La API está desplegada en Azure y puedes probarla usando el siguiente enlace de Swagger:
-
-<a href="https://ms-pos.azurewebsites.net/swagger-ui/index.html" target="_blank">Documentación de API (Swagger)</a>
+[Documentación de API (Swagger)](https://ms-pos.azurewebsites.net/swagger-ui/index.html)
 
 
 
