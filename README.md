@@ -12,11 +12,12 @@ Esta API está implementada en **Java 17** y **Spring Boot**, utilizando método
 
 ## Instalación y Ejecución
 
+```bash
 git clone https://github.com/usuario/repo.git
 cd repo
 ./mvnw clean install
 ./mvnw spring-boot:run
-
+```
 
 ## Ejemplos de Código
 
@@ -30,6 +31,7 @@ public CompletableFuture<GetBranchOfficeResult> getAllAsync(GetBranchOfficeQuery
         return new GetBranchOfficeResult(result);
     });
 }
+```
 
 ### Método asíncrono para crear una sucursal
 ```java
@@ -50,6 +52,7 @@ public CompletableFuture<CreateBranchOfficeResult> saveAsync(CreateBranchOfficeC
         return new CreateBranchOfficeResult(branch.getId(), branch.getCompanyId(), branch.getName(), branch.getCreationDate());
     });
 }
+```
 
 ## Endpoints
 
