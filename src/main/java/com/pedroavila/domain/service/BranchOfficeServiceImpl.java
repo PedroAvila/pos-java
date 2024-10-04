@@ -5,14 +5,12 @@ import com.pedroavila.domain.entity.enums.StatusBranchOffice;
 import com.pedroavila.domain.repositoryContract.BranchOfficeRepository;
 import com.pedroavila.domain.service.dto.*;
 import com.pedroavila.operations.common.BusinessException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 @Service
