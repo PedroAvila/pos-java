@@ -1,17 +1,12 @@
 package com.pedroavila.rest;
 
 import com.pedroavila.domain.service.BranchOfficeService;
-import com.pedroavila.domain.service.dto.CreateBranchOfficeCommad;
-import com.pedroavila.domain.service.dto.CreateBranchOfficeResult;
-import com.pedroavila.domain.service.dto.GetBranchOfficeQuery;
-import com.pedroavila.domain.service.dto.GetBranchOfficeResult;
+import com.pedroavila.domain.service.dto.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/api/branchoffices")
@@ -31,8 +26,15 @@ public class BranchOfficeController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createBranchOffice(@Valid @RequestBody CreateBranchOfficeCommad dto){
+    public ResponseEntity<?> createBranchOffice(@Valid @RequestBody CreateBranchOfficeCommand dto){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new CustomResponse<CreateBranchOfficeResult>(HttpStatus.CREATED.value(), service.saveAsync(dto).join()));
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<?> updateBranchOffice(@Valid @PathVariable Long id, @RequestBody UpdateBranchOfficeCommand dto){
+        var command = new UpdateBranchOfficeCommandWithId(id, dto);
+        service.updateAsync(command);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

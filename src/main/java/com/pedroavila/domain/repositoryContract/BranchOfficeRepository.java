@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface BranchOfficeRepository extends JpaRepository<BranchOffice, Integer> {
+public interface BranchOfficeRepository extends JpaRepository<BranchOffice, Long> {
 
     @Query(value = "SELECT COALESCE(MAX(b.code), 0) + 1 FROM BranchOffice b WHERE b.companyId = :companyId")
     Integer generarCodigo(@Param("companyId") Integer companyId);
