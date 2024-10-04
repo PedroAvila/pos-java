@@ -12,12 +12,11 @@ Esta API está implementada en **Java 17** y **Spring Boot**, utilizando método
 
 ## Instalación y Ejecución
 
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/usuario/repo.git
-   cd repo
-   ./mvnw clean install
-   ./mvnw spring-boot:run
+git clone https://github.com/usuario/repo.git
+cd repo
+./mvnw clean install
+./mvnw spring-boot:run
+
 
 ## Ejemplos de Código
 
