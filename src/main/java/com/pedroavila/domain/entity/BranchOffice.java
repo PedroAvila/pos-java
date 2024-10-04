@@ -11,7 +11,7 @@ public class BranchOffice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private int id;
+    private Long id;
 
     @Column(name = "CompanyId")
     private int companyId;
@@ -47,11 +47,11 @@ public class BranchOffice {
         this.creationDate = creationDate;
     }*/
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

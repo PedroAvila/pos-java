@@ -2,7 +2,7 @@ package com.pedroavila.domain.service.dto;
 
 import jakarta.validation.constraints.*;
 
-public record CreateBranchOfficeCommad(
+public record CreateBranchOfficeCommand(
 
         @Min(value = 1, message = "El ID de la compañía debe ser mayor que 0")
         int companyId,
